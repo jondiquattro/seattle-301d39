@@ -7,7 +7,7 @@ const theOldWay = function(course) {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log('The old way:', theOldWay('Code 301'));
+console.log('The old way:', theOldWay('Code 301'));
 
 
 // STEP 2
@@ -106,45 +106,63 @@ const newObject = array => ({
 // Refactor each function into an arrow function.
 // Write your solutions on a single line wherever possible. 
 
+const sum = (a, b,c,d) => a + b +c +d;
 
 
-let sum = function(a, b, c, d) {
-  return a + b + c + d;
-};
 
-// TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(sum(1, 2, 3, 4));
-
-
-let objectLit = function() {
-  return {
-    key1: 'value1',
-    key2: 'value2',
-    key3: 'value3',
-  };
-};
+// let sum = function(a, b, c, d) {
+//   return a + b + c + d;
+// };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(objectLit());
+console.log(sum(1, 2, 3, 4));
 
+const objectLit = () => ({
+  key1: 'value1',
+  key2: 'value2',
+  key3: 'value3',
+});
 
-let sumAndProduct = function(a, b) {
-  let sum = a + b;
-  let product = a * b;
-  return [sum, product];
-};
+// let objectLit = function() {
+//   return {
+//     key1: 'value1',
+//     key2: 'value2',
+//     key3: 'value3',
+//   };
+// };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(sumAndProduct(3, 9));
+console.log(objectLit());
+
+const sumAndProduct = (a, b) => ({
+  sum: a + b,
+  product: a * b,
+})
 
 
-let message = function(name) {
-  return `Hello, ${name}!`;
-};
+// let sumAndProduct = function(a, b) {
+//   let sum = a + b;
+//   let product = a * b;
+//   return [sum, product];
+// };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(message('Allie'));
+console.log(sumAndProduct(3, 9));
 
+const message = name => `hello ${name}`;
+
+// let message = function(name) {
+//   return `Hello, ${name}!`;
+// };
+
+// TODO: Uncomment the following line of code to see the output in the browser console
+console.log(message('Allie'));
+
+// const Student =(name, age, hometown)=>{(
+//   this.name name,
+//   this.age: age,
+//   this.hometown: hometown,
+// )};
 
 let Student = function(name, age, hometown) {
   this.name = name;
@@ -152,11 +170,13 @@ let Student = function(name, age, hometown) {
   this.hometown = hometown;
 };
 
+// const joe =name => new Student('Joe', 'Schmoe', 100);
+
 let joe = new Student('Joe', 'Schmoe', 100);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-// console.log(joe);
+console.log(joe);
 
 
 Student.prototype.greeting = function() {
@@ -184,17 +204,19 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scope());
+console.log(joe.scope());
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-// console.log(joe.scopeArrow());
+console.log(joe.scopeArrow());
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
+// "this" would be the student constructor, when you call joe.scope() the constructor makes the student object "joe" which gets returned to the joe.scope().
 // 
 // 2. What is "this" when joe.scopeArrow() is invoked?
-//
+//"this" is the window because the scope of student.prototype.scopearrow is the window, and not a specific object like joe.scope().
 // 3. Explain why "this" is different when an arrow function is used.
+// because for some reason the arrow does not know what the scope of "this" is so it thinks that the scope is the entire window object
 // 
