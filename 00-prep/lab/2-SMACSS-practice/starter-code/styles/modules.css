@@ -1,0 +1,23 @@
+main p {
+    color: #333;
+  
+  }
+  .recipe li {
+
+    font-size: 1.3em;
+  
+  }
+  aside h3 {
+ 
+    font-size: 1.6em; 
+    color: #555;
+  }
+  
+  aside p {
+   text-indent: 0;
+  }
+  footer section p{
+
+    text-align: center;
+    color: #aaa;
+  }
